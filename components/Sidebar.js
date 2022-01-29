@@ -13,7 +13,10 @@ const Sidebar = () => {
   const { data: session } = useSession();
   console.log(session);
   return (
-    <div className="text-gray-500 p-5">
+    <div
+      className="text-gray-500 p-5 text-xm border-r 
+    border-gray-900 overflow-y-scroll scrollbar-hide h-screen"
+    >
       <div className="space-y-4">
         <button
           className="flex items-center space-x-2 hover:text-white"
