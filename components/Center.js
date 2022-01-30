@@ -1,5 +1,5 @@
-import { useSession } from "next-auth/react";
-import { ChevronDownIcon } from "@heroicons/react/outline";
+import { signOut, useSession } from "next-auth/react";
+import { LogoutIcon } from "@heroicons/react/outline";
 import { useEffect, useState } from "react";
 import { shuffle } from "lodash";
 
@@ -26,15 +26,16 @@ const Center = () => {
       <header className="absolute top-5 right-8">
         <div
           className="flex items-center bg-transparent space-x-3 opacity-90 hover:opacity-70
-        cursor-pointer rounded-full p-1 pr-2"
+        cursor-pointer rounded-full p-1 pr-2 bg-yellow-200"
+          onClick={() => signOut()}
         >
           <img
-            className="rounded-full w-10 h-10"
+            className="rounded-full w-8 h-8"
             src={session?.user?.image}
             alt="user-img"
           />
           <h2 className="">{session?.user?.name}</h2>
-          <ChevronDownIcon className="h-5 w-5" />
+          <LogoutIcon className="h-5 w-5" />
         </div>
       </header>
       <section
