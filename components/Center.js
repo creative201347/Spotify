@@ -41,12 +41,12 @@ const Center = () => {
   console.log(playlist);
 
   return (
-    <div className="flex-grow">
+    <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide">
       <header className="absolute top-5 right-8">
         <div
           className="flex items-center space-x-3 opacity-90 hover:opacity-70
         cursor-pointer rounded-full p-1 pr-2 bg-black text-white"
-          onClick={() => signOut()}
+          onClick={signOut}
         >
           <img
             className="rounded-full w-8 h-8"
