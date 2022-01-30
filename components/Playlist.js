@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 import useSpotify from "../hooks/useSpotify";
+import { useRecoilState } from "recoil";
+import { playlistIdState } from "../atom/playlistAtom";
 
 const Playlist = () => {
   const spotifyApi = useSpotify();
   const { data: session } = useSession();
   const [playlists, setPlaylists] = useState([]);
-  const [playlistId, setPlaylistId] = useState(null);
-  console.log(playlistId);
+
+  const [playlistId, setPlaylistId] = useRecoilState(playlistIdState);
 
   useEffect(() => {
     if (spotifyApi.getAccessToken()) {
@@ -18,7 +20,7 @@ const Playlist = () => {
   }, [session, spotifyApi]);
 
   return (
-    <div className="text-gray-500">
+    <div className="text-gray-500 space-y-1">
       {playlists.map((playlist) => (
         <p
           key={playlist.id}
