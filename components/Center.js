@@ -44,8 +44,8 @@ const Center = () => {
     <div className="flex-grow h-screen overflow-y-scroll scrollbar-hide">
       <header className="absolute top-5 right-8">
         <div
-          className="flex items-center space-x-3 opacity-90 hover:opacity-70
-        cursor-pointer rounded-full p-1 pr-2 bg-black text-white"
+          className={`flex items-center space-x-3 opacity-90 hover:opacity-70
+        cursor-pointer rounded-full p-1 pr-2 border border-gray-900 text-white`}
           onClick={signOut}
         >
           <img
