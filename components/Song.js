@@ -6,15 +6,16 @@ import useSpotify from "../hooks/useSpotify";
 const Song = ({ order, track }) => {
   const spotifyApi = useSpotify();
 
-  const [currentTrack, setCurrentTrack] = useRecoilState(currentTrackIdState);
+  const [currentTrackId, setCurrentTrackId] =
+    useRecoilState(currentTrackIdState);
   const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
 
   const playSong = () => {
-    setCurrentTrack(track.track.id);
+    setCurrentTrackId(track.track.id);
     setIsPlaying(true);
-    spotifyApi.play({
-      uris: [track.track.uri],
-    });
+    // spotifyApi.pause({
+    //   uris: [track.track.uri],
+    // });
   };
 
   return (
